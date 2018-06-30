@@ -17,33 +17,28 @@ public class AppUI extends JPanel implements ActionListener {
         window1.pack();
         panel = new JPanel(new GridBagLayout());
         panel.setLayout(new GridBagLayout());
-
-
-//        GridBagConstraints c = new GridBagConstraints();
-//        c.fill = GridBagConstraints.FIRST_LINE_START;
-//        c.gridx = 0;
-//        c.gridy = 0;
         newButton = new JButton("New Recipe");
+        sampleButton = new JButton("TEST");
+        title = new JLabel("Welcome to Cook Book!");
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(5, 5,5, 5);
 
         newButton.addActionListener(this);
-
-
-//        panel.add(newButton, c);
+        c.gridx = 0;
+        c.gridy = 1;
+        panel.add(newButton, c);
 
 //        welcome = new JPanel(new GridBagLayout());
 //        GridBagConstraints d = new GridBagConstraints();
-//        d.fill = GridBagConstraints.PAGE_END;
-//        d.gridx = 5;
-//        d.gridy = 5;
-        sampleButton = new JButton("TEST");
-//        welcome.add(sampleButton, d);
-        title = new JLabel("Welcome to Cook Book!");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 0;
+//        welcome.add(sampleButton, c);
         panel.add(title);
 
-
-        window1.getContentPane().add(panel, "North");
-       // window1.getContentPane().add(welcome, "South");
-        window1.setSize(500, 500);
+        window1.getContentPane().add(panel);
+//        window1.getContentPane().add(welcome, "South");
+         window1.setSize(400, 400);
         window1.setVisible(true);
         window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
