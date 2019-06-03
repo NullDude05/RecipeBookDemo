@@ -7,28 +7,38 @@ import java.io.IOException;
 
 public class AppUI extends JPanel implements ActionListener {
     private JFrame window1, window2;
-    private JPanel panel, panel2;
-    private JButton newButton, recipeButton, doneButton;
+    private JPanel panel, panel2, welcome;
+    private JButton newButton, recipeButton, doneButton, sampleButton;
     private JLabel title, recipeName;
     private JTextArea text;
 
     public void CookBook() {
         window1 = new JFrame("Cook Book");
         window1.pack();
-
-        panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-
-        title = new JLabel("Welcome to Cook Book!");
+        panel = new JPanel(new GridBagLayout());
+        panel.setLayout(new GridBagLayout());
         newButton = new JButton("New Recipe");
+        sampleButton = new JButton("TEST");
+        title = new JLabel("Welcome to Cook Book!");
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(5, 5,5, 5);
 
         newButton.addActionListener(this);
+        c.gridx = 0;
+        c.gridy = 1;
+        panel.add(newButton, c);
 
-        panel.add(title, "North");
-        panel.add(newButton, "South");
+//        welcome = new JPanel(new GridBagLayout());
+//        GridBagConstraints d = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 0;
+//        welcome.add(sampleButton, c);
+        panel.add(title);
 
-        window1.getContentPane().add(panel, "North");
-        window1.setSize(500, 500);
+        window1.getContentPane().add(panel);
+//        window1.getContentPane().add(welcome, "South");
+         window1.setSize(400, 400);
         window1.setVisible(true);
         window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
